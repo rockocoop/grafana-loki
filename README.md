@@ -1,5 +1,5 @@
 Procedure to Deploy Grafana and acheive the following:
 
-``Integrate with Openshift OAUTH``
-``Import Groups``
-``Manage Dashboard permissions based on Groups``
+1. Integrate with Openshift OAUTH
+2. Import Groups
+3. Manage Dashboard permissions based on Groups
