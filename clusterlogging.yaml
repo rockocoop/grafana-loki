@@ -1,0 +1,28 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  name: instance
+  namespace: openshift-logging
+spec:
+  collection:
+    type: vector
+  logStore:
+    elasticsearch:
+      nodeCount: 3
+      redundancyPolicy: SingleRedundancy
+      resources:
+        requests:
+          memory: 2Gi
+      storage:
+        size: 200G
+    lokistack:
+      name: lokistack-sample
+    retentionPolicy:
+      application:
+        maxAge: 7d
+    type: lokistack
+  managementState: Managed
+  visualization:
+    kibana:
+      replicas: 1
+    type: ocp-console

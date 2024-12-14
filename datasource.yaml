@@ -1,0 +1,97 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: loki-datasource
+  namespace: rocko-grafana
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: loki
+    type: loki
+    access: proxy
+    url: https://lokistack-sample-querier-http.openshift-logging.svc:3100
+    isDefault: true
+    secureJsonData:
+      tlsCACert: |
+        -----BEGIN CERTIFICATE-----
+        MIIDazCCAlOgAwIBAgIIE4q/pRski5QwDQYJKoZIhvcNAQELBQAwQzFBMD8GA1UE
+        Aww4b3BlbnNoaWZ0LWxvZ2dpbmdfbG9raXN0YWNrLXNhbXBsZS1zaWduaW5nLWNh
+        QDE3MzM5NDA0NzQwHhcNMjQxMjExMTgwNzUzWhcNMjkxMjEyMDAwNzU0WjBDMUEw
+        PwYDVQQDDDhvcGVuc2hpZnQtbG9nZ2luZ19sb2tpc3RhY2stc2FtcGxlLXNpZ25p
+        bmctY2FAMTczMzk0MDQ3NDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+        AMWsE4Z5fUpnoR35+znI1maT7Idt8IhHr38qCFZW+x56lAAYE2zJgZl9inlLvYNB
+        p7Ru2FJGJJcoWcwZ0b+3Ors8XJmm/v3McYkHKMwLqY+mUwp7C53vPveutum/rOJw
+        kJ2aGo9DQiBdA9Qat6Jbjx5BrUqpwy1z4ZWoDtpSqjRIbrqFj+DOVOUQF88D9jKK
+        Wsui5CI/24LUL8KylVsvfHqzZk4JQzR/ZVsTG4X025W2fxFOxViTNSeHp+8Fmdtz
+        bPxM3tSMSQsbSbjz1b4JyrRCB5BM/nf8a2k3VK4fqCrNwetSa5yhu4OtPTi2EmdA
+        S2C/pdOU4qtvWBQir6UAePkCAwEAAaNjMGEwDgYDVR0PAQH/BAQDAgKkMA8GA1Ud
+        EwEB/wQFMAMBAf8wHQYDVR0OBBYEFF4sxHlVU+czwTnLgw39FRp1KF1SMB8GA1Ud
+        IwQYMBaAFF4sxHlVU+czwTnLgw39FRp1KF1SMA0GCSqGSIb3DQEBCwUAA4IBAQB4
+        0QMhkf152kTGI0N+KkKm1H70kmXYMrGf3F3xmw3/I1mkdsCdUDTzBWJuo4oJEE9y
+        6yKDelv8xuZScQGDGFeZZeiYAg2mN3/3ENZ3a0FpQ8MSHdpxDVgNOYwVMLLte/oK
+        ETZG/9fJmy2KMl4nRtJ5jQEW1SN+cja2ibtS2ICbiOc6ATwJ0i+M6jRdoTmZl7g8
+        IjpNlj7zrSVQoMrSMcikUr/2BY4FlShcD6luEWtPGm41kfNjqobdAqrlsnBK62ZW
+        alJjXEp0wjGQVYixEOX/1PKastw3aip9PWZD6itC7PvR0bnHN8TezMlyM2uwh2zv
+        fgUqcA9IbSEI4MxJpwRj
+        -----END CERTIFICATE-----
+      tlsClientCert: |
+        -----BEGIN CERTIFICATE-----
+        MIIEETCCAvmgAwIBAgIIaoPuNHGjaikwDQYJKoZIhvcNAQELBQAwQzFBMD8GA1UE
+        Aww4b3BlbnNoaWZ0LWxvZ2dpbmdfbG9raXN0YWNrLXNhbXBsZS1zaWduaW5nLWNh
+        QDE3MzM5NDA0NzQwHhcNMjQxMjExMTgwNzU0WhcNMjUwMzExMTgwNzU1WjA1MRcw
+        FQYDVQQKEw5zeXN0ZW06bG9nZ2luZzEaMBgGA1UEAxMRc3lzdGVtOmxva2lzdGFj
+        a3MwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDo5OonwY1sE8ejPmPa
+        29gGAPm8qsNFyJj1fe3cB5DIBv2UClhB0X2OrgWUju342wkXdKB7OQ0g6/uUsPJM
+        39ldN89riLdn0MSvBifMd+jUhRVNkPmnAVdODSZP2cWQPwBAxG8/l53f/20CRZ84
+        tKzL+xkHD+Lb3zagqZVQMczHw76ArEGV3goaDx1DR0FvIe/AgouCz08Yft8ESZ60
+        QzxtWW52zu6mDWk2WPIHa03Szf1wCq4vW1FxLy5OKIo6m8EZzOrGEgNrPunDhLcL
+        ir4cwwQ9cfae7xn15RjmVCiNSLMqDuiq5Nhilg0lg4qMX1d7iN/4OmAmd1Jyfxty
+        YUBLAgMBAAGjggEVMIIBETAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB
+        BQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFH7Y4I6qS/wT
+        NPtO5qu16A2vvpOOMB8GA1UdIwQYMBaAFF4sxHlVU+czwTnLgw39FRp1KF1SMIGR
+        BgNVHREEgYkwgYaCOmxva2lzdGFjay1zYW1wbGUtZ2F0ZXdheS1jbGllbnQtaHR0
+        cC5vcGVuc2hpZnQtbG9nZ2luZy5zdmOCSGxva2lzdGFjay1zYW1wbGUtZ2F0ZXdh
+        eS1jbGllbnQtaHR0cC5vcGVuc2hpZnQtbG9nZ2luZy5zdmMuY2x1c3Rlci5sb2Nh
+        bDANBgkqhkiG9w0BAQsFAAOCAQEAub9tO/C18tRMrBjOuAd78R8kn9Th7PieOAdz
+        Bb4qQLUXYEcMDt1d0TOE1ejVXBAzymJVt26WxRwh7GHSD1jnqMCmEzy8Vbn9Siri
+        nry3GKpuK28dIgOkq2OfrG6KgLt+JruKwcTukCSHg4bQUnxWXyIsEv5M4tU7pP/p
+        dE0yYBjQGhydfIGCisSspTP7E+zEiuORhRLiyH3mLJa3YqtPRoGOxnlNQ8t7VBoQ
+        TrLROt6AQvFvWuMyQm93acKba4T9VIvY6nMTCADP8a1YALzMjqW+vdQg0QS9AK2D
+        xMEt4i6ePBuf8d4i3rgDyouCtPtI6wnKGdffKXRv6RUnWQgdWQ==
+        -----END CERTIFICATE-----
+      tlsClientKey: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpAIBAAKCAQEA6OTqJ8GNbBPHoz5j2tvYBgD5vKrDRciY9X3t3AeQyAb9lApY
+        QdF9jq4FlI7t+NsJF3SgezkNIOv7lLDyTN/ZXTfPa4i3Z9DErwYnzHfo1IUVTZD5
+        pwFXTg0mT9nFkD8AQMRvP5ed3/9tAkWfOLSsy/sZBw/i2982oKmVUDHMx8O+gKxB
+        ld4KGg8dQ0dBbyHvwIKLgs9PGH7fBEmetEM8bVluds7upg1pNljyB2tN0s39cAqu
+        L1tRcS8uTiiKOpvBGczqxhIDaz7pw4S3C4q+HMMEPXH2nu8Z9eUY5lQojUizKg7o
+        quTYYpYNJYOKjF9Xe4jf+DpgJndScn8bcmFASwIDAQABAoIBABJJd0Fr50jnPLPK
+        wFh9DrdZ+EIiPncKS0hrfPPb/DhYpCytq0RvyKYdb/68Ql9aA5q946QJVMiS/wwr
+        4Lq8kPrK2RSehZg3Qlpj51gcykF1ubh/e7rrVgmg6rM2bFbpO4HaasnZg+IE0nBt
+        OxVeynqx2sM9MhkFq+ptpnXHk0bUJ5aN5k2jBtH1HegTiDY4KrqEZ8+d7J32zzfK
+        8MvIfOowDCw5eo36rYooeUvARMXkuvanqQhkEIdqG+Yfvhkn+Vl8x7H3ASfymwG+
+        5xwOvnvOOqbPY5n0AqzoE801/DAiCJ8S/WanCHbcdm57BuRnzVtGrLSGA5xcaYTq
+        GGL+y3ECgYEA9XZp+0hiiwXncYbuBjBHZxAVA6zBax7wKD7/SZ5Zu6ny5Z/r77yM
+        J5WXcoQe55kd9x/Qof+DD6Keis7AtaZln5i6MvImuypb1FiFP8Ifxf/XXFEkrJVn
+        lHjNJB5aMGG1LUvu4alv6UnB6QqAIv5BVBwLYhqWTIfeM7IkHJkAFv8CgYEA8uRg
+        enYClmk54pj0068QnKdRQf1eK9DLDGfbXc4czrvKgkJbvl3zswKoc9xeLsx3kYmB
+        M68LQIoUs82gVRTaxQA4kRZYxSvnz9qJOUD306uo+MK2CWX6tIEJMhr3NqWlMgm5
+        IEuPC6hBBgLc7mYV90fPFAsTAbEaXqkXxZXdArUCgYEAzHgXUHq7m5MPeEIthHoz
+        AGclGiqN8+2Rn/TaMzj1Bp5K93x/zPQCy/aQcZQdKk8h5vlZkZiGVD/iUT5oyOgT
+        Px65/DY6jS570Cbs2G+ciBLWEtCE/D54SfVW7P9boXHCujjGhLPfxTTrknRsyLmD
+        Mc0qrk33ZUjIj8eUzT2mFYECgYEA1ohKgr+K54kHfJI25GWjGYpbJhsAu1iOj2WI
+        ByGOpjaN1mGAIPNg1ULKwJLqiRFFpsE54gmAub98K5e6PovN8uSQEe4X+Acgl6Dh
+        RTWR716WPynTmRd+yUGTerMAmT7TWw/leJXkQZqZ3BJZSyPV0PSW/ZAOeJcRwHw/
+        p+AHNmUCgYAT7ShhA8N8T6ohbUESS6vIitCVglMtAPjeeZwt/hWA64DqvWksTHSz
+        uiV39wHVoMAalRt30kKcMRB8c/NbTOvuCgzeQVNgmKVkr16sqp0wVT1o2U4J9hOY
+        xsOTV9Je51lwq9X6XRiXOIkESKRgGLpES64teTvcMMCx7dJLM6/2Bg==
+        -----END RSA PRIVATE KEY-----
+    jsonData:
+      "tlsAuth": true
+      "tlsAuthWithCACert": true
+      httpHeaderName1: "X-Scope-OrgID"
+    secureJsonData:
+      "httpHeaderValue1": "application"

@@ -1,0 +1,17 @@
+apiVersion: 1
+kind: GrafanaDatasource
+metadata:
+  name: lokistack
+  namespace: rocko-grafana
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+datasources:
+  - name: Loki
+    type: loki
+    access: proxy
+    url: https://lokistack-sample-index-gateway-http.openshift-logging.svc:3100
+    jsonData:
+      timeout: 60
+      maxLines: 1000
