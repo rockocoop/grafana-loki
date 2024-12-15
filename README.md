@@ -204,3 +204,9 @@ In the UI go to repositories and add the git repo:
 
 ### Create application
 
+Create namespace rocko-grafana
+
+```
+oc new-project rocko-grafana
+oc label ns rocko-grafana argocd.argoproj.io/managed-by=argocd
+
