@@ -1,4 +1,4 @@
-#Setup LokiStack with Grafana for Application Logs on OCP
+# Setup LokiStack with Grafana for Application Logs on OCP
 
 
 This project is an example of how to acheive the following:
@@ -48,7 +48,11 @@ Open UI:  https://mino-minio.apps.<yourClusterDomain>/login
 
 ![Alt text](screenshots/miniologin.jpeg?raw=true "Minio Login")
 
+Login with the user admin and password retrieved above
 
+Create Bucket 'loki'
+
+![Alt text](screenshots/miniobucket.jpeg?raw=true "Minio Create Bucket")
 
 grafana operator helm:
 
