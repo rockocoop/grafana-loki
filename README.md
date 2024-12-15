@@ -221,4 +221,25 @@ Create namespace rocko-grafana
 ```
 oc new-project rocko-grafana
 oc label ns rocko-grafana argocd.argoproj.io/managed-by=argocd
+```
 
+Create application
+```
+oc apply -f argocd/application.yaml
+```
+
+Go to the grafana URL:
+https://grafana-instance-route-rocko-grafana.apps.<yourClusterDomain>
+
+Login using your OCP credentials
+
+NOTE: Your user should have view on the rocko-grafana namespace.  If it doesnt give it permissions as follows:
+```
+oc adm policy add-role-to-user view <user> -n rocko-grafana
+```
+
+Go to Dashboards and select the dashboard.  You should now see a list of logs from all namespaces with "rocko-" at the beginning of the name
+
+![Alt text](screenshots/grafanadb.jpeg?raw=true "Grafana Dashboard with Logs")
+
+```
