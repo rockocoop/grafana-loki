@@ -108,7 +108,7 @@ oc apply -f loki/ocp/lokistack.yaml
 
 Deploy ClusterLogging
 
-reference doc: https://docs.openshift.com/container-platform/4.14/observability/logging/log_storage/installing-log-storage.html
+![Alt text](screenshots/clusterlogging.jpeg?raw=true "Cluster Logging Operator")
 
 Install the ClusterLogging operator
 
