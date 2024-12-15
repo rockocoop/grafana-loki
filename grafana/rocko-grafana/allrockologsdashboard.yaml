@@ -10,4 +10,3 @@ spec:
   configMapRef:
     name: allrockologsdb
     key: allrockologsdashboard.json
-  folder: "Rocko"
