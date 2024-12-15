@@ -54,6 +54,10 @@ Create Bucket 'loki'
 
 ![Alt text](screenshots/miniobucket.jpeg?raw=true "Minio Create Bucket")
 
+Create an access key to be used when setting up LokiStack
+
+![Alt text](screenshots/minioaccesskey.jpeg?raw=true "Minio Create Access Key")
+
 grafana operator helm:
 
 https://artifacthub.io/packages/helm/bitnami/grafana-operator
