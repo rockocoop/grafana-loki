@@ -134,6 +134,7 @@ spec:
       mode: "console"
     auth.anonymous:
       enabled: "True"
+      default_org: "Rocko"
       default_role: Admin
     auth:
       disable_login_form: "False"
@@ -143,8 +144,8 @@ spec:
     auth.proxy:
       enabled: "True"
       auto_assign_org: "true"
-      auto_assign_org_role: "Viewer"
-      auto_assign_org_name: "Rocko"
+      auto_assign_org_role: "Admin"
+      #auto_assign_org_name: "Rocko"
       enable_login_token: "True"
       header_property: "username"
       header_name: "X-Forwarded-User"
