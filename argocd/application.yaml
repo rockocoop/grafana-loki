@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rocko-grafana
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: false
+    path: grafana/rocko-grafana
+    repoURL: https://github.com/rockocoop/grafana-loki.git
+    targetRevision: HEAD

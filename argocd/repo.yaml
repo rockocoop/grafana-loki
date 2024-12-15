@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  insecure: dHJ1ZQ==
+  project: ZGVmYXVsdA==
+  type: Z2l0
+  url: aHR0cHM6Ly9naXRodWIuY29tL3JvY2tvY29vcC9ncmFmYW5hLWxva2kuZ2l0
+kind: Secret
+metadata:
+  annotations:
+    managed-by: argocd.argoproj.io
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  name: repo-2294158084
+  namespace: argocd
+type: Opaque
