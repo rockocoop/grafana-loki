@@ -140,7 +140,7 @@ spec:
     auth.basic:
       enabled: "True"
     users:
-      auto_assign_org_role: "Admin"
+      auto_assign_org_role: "View"
     auth.proxy:
       enabled: "True"
       enable_login_token: "True"
