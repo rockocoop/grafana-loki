@@ -47,7 +47,7 @@ Open the route created above and login using user admin and the password from th
 
 Create a bucket
 
-Open UI:  https://mino-minio.apps.<yourClusterDomain>/login
+Open UI:  https://mino-minio.apps.yourClusterDomain/login
 
 ![Alt text](screenshots/miniologin.jpeg?raw=true "Minio Login")
 
@@ -229,7 +229,7 @@ oc apply -f argocd/application.yaml
 ```
 
 Go to the grafana URL:
-https://grafana-instance-route-rocko-grafana.apps.<yourClusterDomain>
+https://grafana-instance-route-rocko-grafana.apps.yourClusterDomain
 
 Login using your OCP credentials
 
