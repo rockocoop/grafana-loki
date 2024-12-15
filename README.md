@@ -175,12 +175,11 @@ spec:
         -----BEGIN RSA PRIVATE KEY-----
         < Your Key that was extracted from previous command >
         -----END RSA PRIVATE KEY-----
+      httpHeaderValue1: "application"
     jsonData:
       "tlsAuth": true
       "tlsAuthWithCACert": true
       httpHeaderName1: "X-Scope-OrgID"
-    secureJsonData:
-      "httpHeaderValue1": "application"
 ```
 
 ## Install Openshift Gitops Operator
