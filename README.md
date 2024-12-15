@@ -193,7 +193,6 @@ When installing the operator, go to the YAML view and ensure that you add the ar
 
 ![Alt text](screenshots/gitopsconfig.jpeg?raw=true "Openshift Gitops Config")
 
-
 ```
 env:
 - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
@@ -207,6 +206,7 @@ This will allow your argocd instance to create cluster level objects as well.
 ```
 oc new-project argocd
 oc apply -f argocd/argocd.yaml
+oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:argocd:argocd-argocd-application-controller
 ```
 
 ### Setup access to Git Repo in Argocd
