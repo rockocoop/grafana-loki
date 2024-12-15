@@ -74,11 +74,37 @@ Grafana references:
 https://github.com/grafana/grafana-operator/tree/master/examples
 
 
-## Deploy Loki Stack
+## Deploy Loki Stack in Openshift Cluster Logging
 
 Install the operator using the OperatorHub
 
 ![Alt text](screenshots/lokioperator.jpeg?raw=true "Loki Operator")
+
+
+Create Secret for LokiStack to connect to the minio bucket
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: logging-loki-s3
+  namespace: openshift-logging
+stringData:
+  access_key_id: <updateWithYourKey>
+  access_key_secret: <updateWithYourSecret>
+  bucketnames: loki
+  endpoint: http://minio.minio.svc:9000
+```
+
+```
+oc apply -f secret.yaml
+```
+
+Deploy LokiStack
+
+```
+oc apply -f lokistack-ocp-logging.yaml
+```
 
 
 Extract login details for Loki
