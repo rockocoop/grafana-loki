@@ -199,7 +199,7 @@ oc apply -f argocd/argocd.yaml
 ### Setup access to Git Repo in Argocd
 
 In the UI go to repositories and add the git repo:
-![Alt text](screenshots/gitrepo.jpeg?raw=true "Argocd Git Repo")
+![Alt text](screenshots/argorepo.jpeg?raw=true "Argocd Git Repo")
 
 
 ### Create application
