@@ -108,6 +108,8 @@ oc apply -f loki/ocp/lokistack.yaml
 
 Deploy ClusterLogging
 
+reference doc: https://docs.openshift.com/container-platform/4.14/observability/logging/log_storage/installing-log-storage.html
+
 Install the ClusterLogging operator
 
 Deploy clusterlogging instance:
@@ -115,6 +117,10 @@ Deploy clusterlogging instance:
 ```
 oc apply -f loki/ocp/clusterlogging.yaml
 ```
+
+You should now have logs in the OCP UI under Observe -> Logs
+
+![Alt text](screenshots/lokiloginsui.jpeg?raw=true "Loki Logs in OCP UI")
 
 
 Extract login details for Loki
