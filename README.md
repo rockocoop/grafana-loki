@@ -46,7 +46,7 @@ Create a bucket
 
 Open UI:  https://mino-minio.apps.<yourClusterDomain>/login
 
-![Alt text](screenshots/miniologin.jpg?raw=true "Minio Login")
+![Alt text](screenshots/miniologin.jpeg?raw=true "Minio Login")
 
 
 
