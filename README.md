@@ -10,6 +10,9 @@ This project is an example of how to acheive the following:
 
 ## Prerequisites
 
+(First check that you have an Openshift Cluster Setup and that you have Admin access)
+
+
 In this example, the devteam is 'rocko'.  Start by creating a namespace for the grafana for team rocko
 
 ```
@@ -100,19 +103,21 @@ stringData:
 oc apply -f loki/ocp/secret.yaml
 ```
 
-Deploy LokiStack
+### Deploy LokiStack
 
 ```
 oc apply -f loki/ocp/lokistack.yaml
 ```
 
-Deploy ClusterLogging
-
-![Alt text](screenshots/clusterlogging.jpeg?raw=true "Cluster Logging Operator")
+## Deploy ClusterLogging
 
 Install the ClusterLogging operator
 
-Deploy clusterlogging instance:
+![Alt text](screenshots/clusterlogging.jpeg?raw=true "Cluster Logging Operator")
+
+
+
+ ### Deploy clusterlogging instance:
 
 ```
 oc apply -f loki/ocp/clusterlogging.yaml
@@ -123,7 +128,9 @@ You should now have logs in the OCP UI under Observe -> Logs
 ![Alt text](screenshots/lokilogsinui.jpeg?raw=true "Loki Logs in OCP UI")
 
 
-Extract login details for Loki
+## Setup Grafana Instance
+
+### Extract login details for Loki
 
 Retreive ca cert and access cert
 ```
@@ -176,6 +183,20 @@ spec:
       "httpHeaderValue1": "application"
 ```
 
-Install Clusterlogging stack with Loki
+## Install Openshift Gitops Operator
 
-https://docs.openshift.com/container-platform/4.14/observability/logging/log_storage/installing-log-storage.html
+### Install Operator
+
+![Alt text](screenshots/gitopsoperator.jpeg?raw=true "Openshift Gitops Operator")
+
+### Install argocd instance
+
+```
+oc new-project argocd
+oc apply -f argocd/argocd.yaml
+```
+
+### Setup access to Git Repo in Argocd
+
+
+### Create applicationset
