@@ -134,6 +134,8 @@ spec:
       mode: "console"
     auth.anonymous:
       enabled: "True"
+      org_name: "Main Org."
+      org_role: "Viewer"
     auth:
       disable_login_form: "False"
       disable_signout_menu: "True"
