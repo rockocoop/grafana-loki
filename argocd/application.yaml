@@ -14,3 +14,5 @@ spec:
     path: grafana/rocko-grafana
     repoURL: https://github.com/rockocoop/grafana-loki.git
     targetRevision: HEAD
+  syncPolicy:
+    automated: {}
