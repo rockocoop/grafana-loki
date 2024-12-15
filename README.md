@@ -189,6 +189,19 @@ spec:
 
 ![Alt text](screenshots/gitopsoperator.jpeg?raw=true "Openshift Gitops Operator")
 
+When installing the operator, go to the YAML view and ensure that you add the argocd namespace to the following environmental variable
+
+![Alt text](screenshots/gitopsconfig.jpeg?raw=true "Openshift Gitops Config")
+
+
+```
+env:
+- name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+  value: 'openshift-gitops,argocd'
+```
+This will allow your argocd instance to create cluster level objects as well.
+
+
 ### Install argocd instance
 
 ```
