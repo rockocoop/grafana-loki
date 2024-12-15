@@ -97,23 +97,78 @@ stringData:
 ```
 
 ```
-oc apply -f secret.yaml
+oc apply -f loki/ocp/secret.yaml
 ```
 
 Deploy LokiStack
 
 ```
-oc apply -f lokistack-ocp-logging.yaml
+oc apply -f loki/ocp/lokistack.yaml
+```
+
+Deploy ClusterLogging
+
+Install the ClusterLogging operator
+
+Deploy clusterlogging instance:
+
+```
+oc apply -f loki/ocp/clusterlogging.yaml
 ```
 
 
 Extract login details for Loki
 
-``` 
-oc get secret lokistack-sample-gateway-client-http -o yaml
+Retreive ca cert and access cert
+```
+oc get secret lokistack-sample-gateway-client-http -o yaml -n openshift-logging|grep -i tls.crt|awk '{print $2}'|base64 -d
+```
+The first cert in the list will be the access cert and the second the ca cert.  You can check this by copying the certificates into 2 separate files,
+and running `openssl x509 -in <certfile.crt> -noout -text` and looking for the CA: TRUE field.  The one with this field is the ca cert.
+
+Retreive ca key
+```
+oc get secret lokistack-sample-gateway-client-http -o yaml -n openshift-logging|grep -i tls.key|awk '{print $2}'|base64 -d
 ```
 
+Update the values in the grafana/datasource.yaml as follows:
 
+```
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: loki-datasource
+  namespace: rocko-grafana
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: loki
+    type: loki
+    access: proxy
+    url: https://lokistack-sample-querier-http.openshift-logging.svc:3100
+    isDefault: true
+    secureJsonData:
+      tlsCACert: |
+        -----BEGIN CERTIFICATE-----
+        < Your CA Cert that was extracted from the previous command >
+        -----END CERTIFICATE-----
+      tlsClientCert: |
+        -----BEGIN CERTIFICATE-----
+        < Your Accessd Cert that was extracted from the previous command >
+        -----END CERTIFICATE-----
+      tlsClientKey: |
+        -----BEGIN RSA PRIVATE KEY-----
+        < Your Key that was extracted from previous command >
+        -----END RSA PRIVATE KEY-----
+    jsonData:
+      "tlsAuth": true
+      "tlsAuthWithCACert": true
+      httpHeaderName1: "X-Scope-OrgID"
+    secureJsonData:
+      "httpHeaderValue1": "application"
+```
 
 Install Clusterlogging stack with Loki
 
