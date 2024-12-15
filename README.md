@@ -120,7 +120,7 @@ oc apply -f loki/ocp/clusterlogging.yaml
 
 You should now have logs in the OCP UI under Observe -> Logs
 
-![Alt text](screenshots/lokilogsinsui.jpeg?raw=true "Loki Logs in OCP UI")
+![Alt text](screenshots/lokilogsinui.jpeg?raw=true "Loki Logs in OCP UI")
 
 
 Extract login details for Loki
