@@ -58,18 +58,27 @@ Create an access key to be used when setting up LokiStack
 
 ![Alt text](screenshots/minioaccesskey.jpeg?raw=true "Minio Create Access Key")
 
+### Setup Grafana Operator
+
 grafana operator helm:
 
 https://artifacthub.io/packages/helm/bitnami/grafana-operator
 
 ```
 oc new-project grafana-operator
-helm install grafana-operator -f values-grafana.yaml oci://registry-1.docker.io/bitnamicharts/grafana-operator
+helm install grafana-operator -f values-grafana.yaml oci://registry-1.docker.io/bitnamicharts/grafana-operator -n grafana-operator
 ```
 
 Grafana references:
 
 https://github.com/grafana/grafana-operator/tree/master/examples
+
+
+## Deploy Loki Stack
+
+Install the operator using the OperatorHub
+
+![Alt text](screenshots/lokioperator.jpeg?raw=true "Loki Operator")
 
 
 Extract login details for Loki
