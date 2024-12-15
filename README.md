@@ -69,7 +69,7 @@ https://artifacthub.io/packages/helm/bitnami/grafana-operator
 
 ```
 oc new-project grafana-operator
-helm install grafana-operator -f values-grafana.yaml oci://registry-1.docker.io/bitnamicharts/grafana-operator -n grafana-operator
+helm install grafana-operator -f grafana/operator/values-grafana.yaml oci://registry-1.docker.io/bitnamicharts/grafana-operator -n grafana-operator
 ```
 
 Grafana references:
