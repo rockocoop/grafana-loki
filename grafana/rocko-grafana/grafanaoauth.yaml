@@ -94,7 +94,6 @@ spec:
                 - '-email-domain=*'
                 - '-upstream=http://localhost:3000'
                 - '-openshift-sar={"namespace": "rocko-grafana", "resource": "pods", "verb": "list"}'
-                #- '-openshift-sar={"resource": "namespaces", "verb": "get"}'
                 - '-openshift-delegate-urls={"/": {"resource": "namespaces", "verb": "get"}}'
                 - '-tls-cert=/etc/tls/private/tls.crt'
                 - '-tls-key=/etc/tls/private/tls.key'
