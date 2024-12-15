@@ -135,6 +135,7 @@ spec:
       mode: "console"
     auth.anonymous:
       enabled: "True"
+      default_role = Admin
     auth:
       disable_login_form: "False"
       disable_signout_menu: "True"
