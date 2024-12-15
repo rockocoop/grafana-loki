@@ -89,9 +89,8 @@ spec:
         uiV39wHVoMAalRt30kKcMRB8c/NbTOvuCgzeQVNgmKVkr16sqp0wVT1o2U4J9hOY
         xsOTV9Je51lwq9X6XRiXOIkESKRgGLpES64teTvcMMCx7dJLM6/2Bg==
         -----END RSA PRIVATE KEY-----
+      httpHeaderValue1: "application"
     jsonData:
       "tlsAuth": true
       "tlsAuthWithCACert": true
       httpHeaderName1: "X-Scope-OrgID"
-    secureJsonData:
-      "httpHeaderValue1": "application"
