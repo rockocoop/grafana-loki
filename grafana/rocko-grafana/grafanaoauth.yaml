@@ -134,18 +134,15 @@ spec:
       mode: "console"
     auth.anonymous:
       enabled: "True"
-      default_org: "Rocko"
-      default_role: Admin
     auth:
       disable_login_form: "False"
       disable_signout_menu: "True"
     auth.basic:
       enabled: "True"
+    users:
+      auto_assign_org_role: "Admin"
     auth.proxy:
       enabled: "True"
-      auto_assign_org: "true"
-      auto_assign_org_role: "Admin"
-      #auto_assign_org_name: "Rocko"
       enable_login_token: "True"
       header_property: "username"
       header_name: "X-Forwarded-User"
