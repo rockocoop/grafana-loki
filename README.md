@@ -8,6 +8,14 @@ This project is an example of how to acheive the following:
 4. Setup a Grafana instance for a dev team which has dashboards for the specific team's namespaces
 5. Manage all in argocd with auto-sync
 
+## Security Guidelines
+In this scenario we will be deploying the lokistack in the openshift-logging namespace. To further increase security do the following:
+1. Deploy the lokistack in its own namespace
+2. Close the namespace with networkpolicies that allow traffic ONLY from namespaces where grafana is installed
+3. Ensure that the grafana namespaces (as you will see below 'rocko-grafana' is view only to all grafana users
+4. These steps ensure that the users can not edit the dashboards or use the login credentials to access the lokistack from another location
+
+
 ## Prerequisites
 
 (First check that you have an Openshift Cluster Setup and that you have Admin access)
