@@ -9,7 +9,7 @@ This project is an example of how to acheive the following:
 5. Manage all in argocd with auto-sync
 
 ## Security Guidelines
-In this scenario we will be deploying the lokistack in the openshift-logging namespace. To further increase security do the following:
+In this scenario we will be deploying the lokistack in the openshift-logging namespace. In our environment, to further increase security do the following:
 1. Deploy the lokistack in its own namespace
 2. Configure the ClusterLogForwarder to send application logs to the lokistack
 3. Close the namespace with networkpolicies that allow traffic ONLY from the openshift-logging namespace for the ClusterLogForwarder and namespaces where grafana is installed
