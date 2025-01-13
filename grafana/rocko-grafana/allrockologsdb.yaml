@@ -1,3 +1,5 @@
+#The regex below is needed only if not using separate tenants for each namespace.  In the scenario where you are using a clusterlogforwarder
+#you create a datasource per k8s namespace you want the logs to be avaiable from and then update the datasource in this dashboard to match
 apiVersion: v1
 data:
   allrockologsdashboard.json: |
