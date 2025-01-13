@@ -14,7 +14,8 @@ In this scenario we will be deploying the lokistack in the openshift-logging nam
 2. Configure the ClusterLogForwarder to send application logs to the lokistack with tenenatKey set to kubernetes.namespace_name
 3. Close the namespace with networkpolicies that allow traffic ONLY from the openshift-logging namespace for the ClusterLogForwarder and namespaces where grafana is installed
 4. Ensure that the grafana namespaces (as you will see below 'rocko-grafana') is view only to all grafana users EXCEPT for dashboard objects
-5. Create the datasource is configured with the header of the namespace logs you want to allow for that instance of grafana
+5. Create the datasource and ensure that it is configured with the header value equal to the namespace logs you want to allow for that instance of grafana
+6. This setup sends all logs to the external LokiStack, however the logs are organized into separate tenants per k8s namespace, and therefore when setting the header in the datasource to that value, only logs from that tenenat are viewable to the grafana end user.
 
 
 ## Prerequisites
