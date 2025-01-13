@@ -1,0 +1,21 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: external-loki
+  namespace: <log_forwarder_namespace> 
+spec:
+  serviceAccountName: external-loki #create an sa with permissions to gather and send logs
+  outputs:
+  - name: loki-secure 
+    type: "loki"
+    url: https://loki.secure.com:3100 #this should be the distributor address
+    secret:
+      name: loki-secret #create a tls secret with ca-bundle.crt, tls.key, tls.crt values.  Look at the readme to extract them same as for creating a datasource
+    loki:
+      tenantKey: kubernetes.namespace_name 
+  pipelines:
+  - name: application-logs 
+    inputRefs:  
+    - application
+    outputRefs: 
+    - loki-secure
