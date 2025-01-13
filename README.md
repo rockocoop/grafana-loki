@@ -11,10 +11,10 @@ This project is an example of how to acheive the following:
 ## Security Guidelines
 In this scenario we will be deploying the lokistack in the openshift-logging namespace. In our environment, to further increase security do the following:
 1. Deploy the lokistack in its own namespace
-2. Configure the ClusterLogForwarder to send application logs to the lokistack
+2. Configure the ClusterLogForwarder to send application logs to the lokistack with tenenatKey set to kubernetes.namespace_name
 3. Close the namespace with networkpolicies that allow traffic ONLY from the openshift-logging namespace for the ClusterLogForwarder and namespaces where grafana is installed
-4. Ensure that the grafana namespaces (as you will see below 'rocko-grafana' is view only to all grafana users
-5. These steps ensure that the users can not edit the dashboards or use the login credentials to access the lokistack from another location
+4. Ensure that the grafana namespaces (as you will see below 'rocko-grafana') is view only to all grafana users EXCEPT for dashboard objects
+5. Create the datasource is configured with the header of the namespace logs you want to allow for that instance of grafana
 
 
 ## Prerequisites
